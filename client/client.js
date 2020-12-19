@@ -1,31 +1,3 @@
-{/* <div class="ui card">
-                <div class="content">
-                  <div class="header">partie de Ouil</div>
-                </div>
-                <div class="content">
-                  <h4 class="ui sub header">Informations partie</h4>
-                  <div class="ui small feed">
-                    <div class="event">
-                      <div class="content">
-                        <div class="summary">
-                           Nombre de joueurs: 1/2
-                        </div>
-                      </div>
-                    </div>
-                    <div class="event">
-                      <div class="content">
-                        <div class="summary">
-                           Date de création: 18/12/2020
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="extra content">
-                  <button class="ui blue button">Joindre la partie</button>
-                </div>
-              </div>
-        </div> */}
 function addVignette({gameName, playerNumbers, createdAt}){
     let div0 = document.createElement("div")
     div0.className = "row"
@@ -60,7 +32,7 @@ function addVignette({gameName, playerNumbers, createdAt}){
     let label3 = document.createTextNode(`Date de création: ${createdAt}`)
     let div12 = document.createElement("div")
     div12.className = "extra content"
-    let button1 = document.createElement("div")
+    let button1 = document.createElement("button")
     button1.className = "ui blue button"
     let label4 = document.createTextNode("Joindre la partie")
 
@@ -78,11 +50,11 @@ function addVignette({gameName, playerNumbers, createdAt}){
     div7.appendChild(div8)
     div8.appendChild(label2)
 
-    div4.appendChild(div9)
+    div5.appendChild(div9)
     div9.appendChild(div10)
     div10.appendChild(div11)
     div11.appendChild(label3)
-    div4.appendChild(div12)
+    div1.appendChild(div12)
     div12.appendChild(button1)
     button1.appendChild(label4)
 
