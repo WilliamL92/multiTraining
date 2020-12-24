@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MULTI TEST</title>
     <script type="text/javascript" src="librairie/jquery.min.js"></script>
     <script type="text/javascript" src="librairie/semantic.min.js"></script>
-    <link rel="stylesheet" href="librairie/semantic.min.css">
-    <script type="text/javascript" src="librairie/phaser.min.js"></script>
     <script type="text/javascript" src="functions.js"></script>
-    <script type="text/javascript" src="client.js"></script>
+    <link rel="stylesheet" href="librairie/semantic.min.css">
 </head>
 <body>
-    <!-- <div class="ui one column centered grid">
+    <div class="ui one column centered grid">
         <div class="row">
             <h2>Créer une nouvelle partie !</h2>
         </div>
         <div class="row">
             <div class="ui action input">
                 <input type="text" id="createGame" placeholder="Nom de la partie...">
-                <button class="ui green button">Créer !</button>
+                <button class="ui green button" onclick="createGame()">Créer !</button>
             </div>
         </div>
             <div class="row">
@@ -27,7 +25,30 @@
             </div>
         <div id="contentList" class="row">
         </div>
-    </div> -->
+    </div>
         
+        <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+		<script>
+			const socket = io('http://localhost:3000');
+
+			socket.on('gameCreated', route => {
+				window.location.href = route;
+			})
+
+			socket.on('addGameToList', game => {
+				addVignette(game);
+			})
+
+			function createGame(){
+				let gameName = document.getElementById('createGame').value;
+				socket.emit('createGame', gameName);
+			}
+
+			function joinGame(gameRoute){
+				window.location.href = gameRoute;
+			}
+			
+		</script>
+		
 </body>
 </html>
